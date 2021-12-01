@@ -11,6 +11,7 @@ variable "mail_from_domain" {
 
 variable "kms_key_id" {
   type        = string
+  default     = null
   description = "KMS key ARN used for encryption"
 }
 
