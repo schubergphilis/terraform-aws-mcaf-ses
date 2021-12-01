@@ -5,6 +5,8 @@ locals {
 data "aws_region" "current" {}
 
 data "aws_route53_zone" "default" {
+  provider = aws.route53
+
   name = var.domain
 }
 
