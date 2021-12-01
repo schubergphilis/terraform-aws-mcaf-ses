@@ -47,8 +47,8 @@ Terraform module to configure SES.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_domain"></a> [domain](#input\_domain) | Domain name | `string` | n/a | yes |
-| <a name="input_kms_key_id"></a> [kms\_key\_id](#input\_kms\_key\_id) | KMS key ARN used for encryption | `string` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | Map of tags to set on Terraform created resources | `map(string)` | n/a | yes |
+| <a name="input_kms_key_id"></a> [kms\_key\_id](#input\_kms\_key\_id) | KMS key ARN used for encryption | `string` | `null` | no |
 | <a name="input_mail_from_domain"></a> [mail\_from\_domain](#input\_mail\_from\_domain) | Set a MAIL FROM domain (defaults to `mail.$domain`) | `string` | `null` | no |
 | <a name="input_smtp_users"></a> [smtp\_users](#input\_smtp\_users) | List of SMTP users allowed to send mail from this domain | `list(string)` | `[]` | no |
 
