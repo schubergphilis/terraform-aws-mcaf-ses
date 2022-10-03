@@ -3,6 +3,15 @@ variable "domain" {
   description = "Domain name"
 }
 
+variable "dmarc" {
+  type = object({
+    policy = optional(string, "v=DMARC1;p=reject;sp=reject")
+    rua    = optional(string)
+    ruf    = optional(string)
+  })
+  description = "(Optional) DMARC configuration"
+}
+
 variable "mail_from_domain" {
   type        = string
   default     = null

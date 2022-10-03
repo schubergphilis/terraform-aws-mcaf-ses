@@ -47,6 +47,7 @@ Terraform module to configure SES.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_dmarc"></a> [dmarc](#input\_dmarc) | (Optional) DMARC configuration | <pre>object({<br>    policy = optional(string, "v=DMARC1;p=reject;sp=reject")<br>    rua    = optional(string)<br>    ruf    = optional(string)<br>  })</pre> | n/a | yes |
 | <a name="input_domain"></a> [domain](#input\_domain) | Domain name | `string` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | Map of tags to set on Terraform created resources | `map(string)` | n/a | yes |
 | <a name="input_kms_key_id"></a> [kms\_key\_id](#input\_kms\_key\_id) | KMS key ARN used for encryption | `string` | `null` | no |
