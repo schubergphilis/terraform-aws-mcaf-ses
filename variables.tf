@@ -1,3 +1,9 @@
+variable "create_spf_wildcard_record" {
+  type        = bool
+  default     = true
+  description = "Set to true to create an additional wildcard SPF record that denies email from all subdomains"
+}
+
 variable "domain" {
   type        = string
   description = "Domain name"

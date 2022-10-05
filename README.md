@@ -33,6 +33,7 @@ Terraform module to configure SES.
 | [aws_route53_record.mail_from_mx](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_record) | resource |
 | [aws_route53_record.mail_from_spf](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_record) | resource |
 | [aws_route53_record.ses_verification](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_record) | resource |
+| [aws_route53_record.wildcard_spf](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_record) | resource |
 | [aws_secretsmanager_secret.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/secretsmanager_secret) | resource |
 | [aws_secretsmanager_secret_version.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/secretsmanager_secret_version) | resource |
 | [aws_ses_domain_dkim.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ses_domain_dkim) | resource |
@@ -49,6 +50,7 @@ Terraform module to configure SES.
 |------|-------------|------|---------|:--------:|
 | <a name="input_domain"></a> [domain](#input\_domain) | Domain name | `string` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | Map of tags to set on Terraform created resources | `map(string)` | n/a | yes |
+| <a name="input_create_spf_wildcard_record"></a> [create\_spf\_wildcard\_record](#input\_create\_spf\_wildcard\_record) | Set to true to create an additional wildcard SPF record that denies email from all subdomains | `bool` | `true` | no |
 | <a name="input_kms_key_id"></a> [kms\_key\_id](#input\_kms\_key\_id) | KMS key ARN used for encryption | `string` | `null` | no |
 | <a name="input_mail_from_domain"></a> [mail\_from\_domain](#input\_mail\_from\_domain) | Set a MAIL FROM domain (defaults to `mail.$domain`) | `string` | `null` | no |
 | <a name="input_smtp_users"></a> [smtp\_users](#input\_smtp\_users) | List of SMTP users allowed to send mail from this domain | `list(string)` | `[]` | no |

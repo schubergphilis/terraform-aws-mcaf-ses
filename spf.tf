@@ -17,3 +17,14 @@ resource "aws_route53_record" "mail_from_spf" {
   type    = "TXT"
   zone_id = data.aws_route53_zone.default.zone_id
 }
+
+resource "aws_route53_record" "wildcard_spf" {
+  count    = var.create_spf_wildcard_record ? 1 : 0
+  provider = aws.route53
+
+  name    = "*"
+  records = ["v=spf1 -all"]
+  ttl     = "600"
+  type    = "TXT"
+  zone_id = data.aws_route53_zone.default.zone_id
+}
