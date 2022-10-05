@@ -15,7 +15,8 @@ variable "dmarc" {
     rua    = optional(string)
     ruf    = optional(string)
   })
-  description = "(Optional) DMARC configuration"
+  default     = { policy = "v=DMARC1;p=reject;sp=reject" }
+  description = "DMARC configuration"
 }
 
 variable "mail_from_domain" {
