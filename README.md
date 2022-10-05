@@ -7,7 +7,7 @@ Terraform module to configure SES.
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.14 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3.0 |
 
 ## Providers
 
@@ -48,6 +48,7 @@ Terraform module to configure SES.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_dmarc"></a> [dmarc](#input\_dmarc) | (Optional) DMARC configuration | <pre>object({<br>    policy = optional(string, "v=DMARC1;p=reject;sp=reject")<br>    rua    = optional(string)<br>    ruf    = optional(string)<br>  })</pre> | n/a | yes |
 | <a name="input_domain"></a> [domain](#input\_domain) | Domain name | `string` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | Map of tags to set on Terraform created resources | `map(string)` | n/a | yes |
 | <a name="input_create_spf_wildcard_record"></a> [create\_spf\_wildcard\_record](#input\_create\_spf\_wildcard\_record) | Set to true to create an additional wildcard SPF record that denies email from all subdomains | `bool` | `true` | no |
