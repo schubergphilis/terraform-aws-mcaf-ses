@@ -1,5 +1,6 @@
 // Create IAM users to send mail
 module "smtp_users" {
+  #checkov:skip=CKV_AWS_273: An IAM user is required in this setup, cannot be moved to AWS SSO since this is not a human user
   for_each = toset(var.smtp_users)
 
   source                   = "github.com/schubergphilis/terraform-aws-mcaf-user?ref=v0.1.12"
@@ -14,7 +15,7 @@ module "smtp_users" {
 data "aws_iam_policy_document" "allow_iam_user_to_send_emails" {
   statement {
     actions   = ["ses:SendRawEmail"]
-    resources = ["*"]
+    resources = [data.aws_ses_domain_identity.arn]
   }
 }
 
