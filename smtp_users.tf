@@ -1,6 +1,6 @@
 // Create IAM users to send mail
 module "smtp_users" {
-  #checkov:skip=CKV_AWS_273: IAM user is the only option for SMTP auth  
+  #checkov:skip=CKV_AWS_273: IAM user is the only option for SMTP auth
   for_each = toset(var.smtp_users)
 
   source                   = "github.com/schubergphilis/terraform-aws-mcaf-user?ref=v0.1.12"

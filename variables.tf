@@ -39,5 +39,6 @@ variable "smtp_users" {
 
 variable "tags" {
   type        = map(string)
+  default     = null
   description = "Map of tags to set on Terraform created resources"
 }
