@@ -21,6 +21,7 @@ data "aws_iam_policy_document" "allow_iam_user_to_send_emails" {
 
 // Store credentials in Secrets Manager to be picked up by External Secrets
 resource "aws_secretsmanager_secret" "default" {
+  #checkov:skip=CKV2_AWS_57: Not possible to enable secret rotation for this resource
   for_each = toset(var.smtp_users)
 
   name       = "ses/${var.domain}/${each.key}"
