@@ -3,8 +3,11 @@ module "smtp_users" {
   #checkov:skip=CKV_AWS_273: IAM user is the only option for SMTP auth
   for_each = toset(var.smtp_users)
 
-  source                   = "github.com/schubergphilis/terraform-aws-mcaf-user?ref=v0.1.12"
+  source  = "schubergphilis/mcaf-user/aws"
+  version = "~> 0.4.3"
+
   name                     = "${each.key}@${var.domain}"
+  create_policy            = true
   policy                   = data.aws_iam_policy_document.allow_iam_user_to_send_emails.json
   postfix                  = false
   ssm_ses_smtp_password_v4 = true
