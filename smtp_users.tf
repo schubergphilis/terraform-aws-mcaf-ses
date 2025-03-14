@@ -18,7 +18,7 @@ module "smtp_users" {
 data "aws_iam_policy_document" "allow_iam_user_to_send_emails" {
   statement {
     actions   = ["ses:SendRawEmail"]
-    resources = [aws_ses_domain_identity.default.arn]
+    resources = [replace(aws_ses_domain_identity.default.arn, var.domain, "*")]
   }
 }
 
